@@ -78,7 +78,10 @@ class RegistrationForm extends Component {
           this.setState({errorMsg: 'Username already exists.'});
         }
       })
-      .catch(err => this.props.history.push('/error/500/' + err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   cleanFormData = () => {

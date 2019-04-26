@@ -58,7 +58,10 @@ class NewItemForm extends Component {
         console.log(res);
         this.fetchAddNotification(res.debt);
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchAddNotification = (debt) => {
@@ -83,7 +86,10 @@ class NewItemForm extends Component {
         handleClose();
         reload();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   handleChange = prop => event => {

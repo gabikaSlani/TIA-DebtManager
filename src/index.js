@@ -16,7 +16,7 @@ const routing = (
       <Route exact path="/" component={Login}/>
       <Route path="/home/:id" component={Home}/>
       <Route path="/friend/:userId/:friendId" component={Friend}/>
-      <Route path="/error/:code/:message" component={ErrorPage}/>
+      <Route path="/error/:message" component={ErrorPage}/>
       <Route component={NotFound}/>
       </Switch>
   </BrowserRouter>

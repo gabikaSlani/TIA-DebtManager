@@ -30,10 +30,13 @@ class Home extends Component {
     fetch(url)
       .then(res => res.json())
       .then(res => {
-        this.setState({user: {...this.state.user, info: res[0]}})
+        this.setState({user: {...this.state.user, info: res[0]}});
         this.fetchUserTotal();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchUserTotal = () => {
@@ -41,10 +44,13 @@ class Home extends Component {
     fetch(url)
       .then(res => res.json())
       .then(res => {
-        this.setState({user: {...this.state.user, total: res}})
+        this.setState({user: {...this.state.user, total: res}});
         this.fetchUserFriends();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchUserFriends = () => {
@@ -52,10 +58,13 @@ class Home extends Component {
     fetch(url)
       .then(res => res.json())
       .then(res => {
-        this.setState({user: {...this.state.user, friends: res}})
+        this.setState({user: {...this.state.user, friends: res}});
         this.fetchNotifications();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchNotifications = () => {
@@ -68,7 +77,10 @@ class Home extends Component {
         console.log(this.state.user.notifications);
         this.setState({loading :false})
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   render() {

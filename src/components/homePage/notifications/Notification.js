@@ -41,7 +41,10 @@ class Notification extends Component {
     fetch(url)
       .then(res => res.json())
       .then(res => console.log(res))
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   handleClose = event => {

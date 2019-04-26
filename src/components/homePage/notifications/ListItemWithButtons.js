@@ -86,7 +86,10 @@ class ListItemWithButtons extends Component {
           if (this.props.friendReload) this.props.friendReload();
         }
       })
-      .catch(err => this.props.history.push('/error/500/' + err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchAddFriend = () => {
@@ -98,7 +101,10 @@ class ListItemWithButtons extends Component {
         if(this.props.reload) this.props.reload();
         if (this.props.friendReload) this.props.friendReload();
       })
-      .catch(err => this.props.history.push('/error/500/' + err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchSettleUp = () => {
@@ -110,7 +116,10 @@ class ListItemWithButtons extends Component {
         if (this.props.reload) this.props.reload();
         if (this.props.friendReload) this.props.friendReload();
       })
-      .catch(err => this.props.history.push('/error/500/' + err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   render() {

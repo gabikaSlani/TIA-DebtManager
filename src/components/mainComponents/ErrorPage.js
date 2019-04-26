@@ -5,7 +5,6 @@ import Header from "./header/Header";
 
 const ErrorPage = (props) => {
 
-  const statusCode = props.match.params.code;
   const message = props.match.params.message;
 
   return (
@@ -13,7 +12,7 @@ const ErrorPage = (props) => {
       <Header logged={false}/>
       <div className="paddinger">
         <h1 className="not-found">Error</h1>
-        <h3 className="white-text">{statusCode + ' ' + message}</h3>
+        <h3 className="white-text">{message}</h3>
       </div>
     </div>
   );

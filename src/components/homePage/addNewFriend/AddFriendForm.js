@@ -53,7 +53,10 @@ class AddFriendForm extends Component {
     let url = 'http://localhost:9000/home/users/' + sessionStorage.getItem('logged');
     return fetch(url)
       .then(res => res.json())
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   searchHandler = (event) => {
@@ -83,7 +86,10 @@ class AddFriendForm extends Component {
           ? this.setState({openMessageDialog2: true})
           : this.setState({openAddFriendPopUp: true});
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchIfUserAlreadySentRequest = (friend) => {
@@ -96,7 +102,10 @@ class AddFriendForm extends Component {
           ? this.setState({openMessageDialog: true})
           : this.fetchIfFriendSentRequest(friend)
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   handleClose = () => {

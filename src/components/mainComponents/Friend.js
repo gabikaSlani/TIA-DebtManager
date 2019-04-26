@@ -30,7 +30,7 @@ class Friend extends Component {
     }
   }
 
-  friendReload() {
+  friendReload = () => {
     this.setState({loading: true});
     this.fetchUserInfo();
   };
@@ -43,7 +43,10 @@ class Friend extends Component {
         this.setState({user: {...this.state.user, info: res[0]}})
         this.fetchUserTotal();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchUserTotal = () => {
@@ -54,7 +57,10 @@ class Friend extends Component {
         this.setState({user: {...this.state.user, total: res}});
         this.fetchUserFriends();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchUserFriends = () => {
@@ -71,7 +77,10 @@ class Friend extends Component {
           this.setState({loading: false})
         }
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchFriendInfo = () => {
@@ -82,7 +91,10 @@ class Friend extends Component {
         this.setState({friend: res[0]});
         this.fetchItems();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchItems = () => {
@@ -94,7 +106,10 @@ class Friend extends Component {
         this.setDebt();
         this.fetchNotifications();
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   fetchNotifications = () => {
@@ -105,7 +120,10 @@ class Friend extends Component {
         this.setState({user: {...this.state.user, notifications: res}});
         this.setState({loading: false})
       })
-      .catch(err => this.props.history.push('/error/500/'+err.message))
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   isMyFriend = () => {

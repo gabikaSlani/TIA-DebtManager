@@ -47,7 +47,10 @@ class LoginForm extends Component {
           }
         }
       )
-      .catch(err => this.props.history.push('/error/500/' + err.message));
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
   };
 
   submit = () => {
