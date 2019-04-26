@@ -1,0 +1,24 @@
+.paddinger {
+    padding: 0 15%;
+}
+
+.minus-amount{
+    color: #f03228 !important;
+}
+
+.plus-amount{
+    color: #99c24d !important;
+}
+
+.settled{
+    color: #f18f01 !important;
+    font-weight: bold !important;
+    letter-spacing: 0.05em;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .paddinger{
+        padding: 0 5%;
+    }
+}

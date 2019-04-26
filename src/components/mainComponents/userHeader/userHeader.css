@@ -1,0 +1,52 @@
+.appBar-user {
+    background-color: #2e4057 !important;
+    color: white !important;
+}
+
+.toolbar {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-icon {
+    font-size: 55px !important;
+    margin-right: 10px;
+}
+
+.user-name {
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.user-total {
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .user-icon {
+        font-size: 45px !important;
+    }
+
+    .user-name {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .user-total {
+        font-size: 1em;
+    }
+}

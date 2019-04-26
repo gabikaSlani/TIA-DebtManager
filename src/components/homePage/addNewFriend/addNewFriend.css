@@ -1,0 +1,47 @@
+.button-yes {
+    background-color: #99c24d !important;
+    color: #2f2d2e !important;
+}
+
+.button-no {
+    background-color: #f03228 !important;
+    color: #2f2d2e !important;
+}
+
+.form-add-friend{
+    flex: 1 !important;
+    text-align: center;
+    background-color: #009fb7 !important;
+}
+
+.input-form-add-friend{
+    padding-bottom:10px !important;
+}
+
+.input-form-add-friend > div::after{
+    border-bottom: 2px solid #2e4057 !important;
+}
+
+.title-add-friend{
+    padding-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold !important;
+}
+
+.list-add-friend{
+    overflow-y: auto !important;
+    height: 350px !important;
+    background-color: #f3f2f2;
+}
+
+.item-list-add-friend:hover{
+    background-color: #827d80 !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .list-add-friend{
+        height: 150px !important;
+    }
+}

@@ -1,0 +1,25 @@
+.chips-paper{
+    position: absolute;
+    z-index: 10 !important;
+    left: 0;
+    right: 0;
+}
+.chips-root{
+    flex-grow: 1 !important;
+}
+
+.chips-input{
+    display: flex !important;
+    padding: 0 !important;
+}
+
+.chips-placeholder{
+    position: absolute !important;
+    left: 2px !important;
+}
+.chips-values{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: center;
+}

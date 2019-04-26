@@ -1,0 +1,79 @@
+.badge {
+    margin: 0 -3px;
+}
+
+.badge span {
+    background-color: #f18f01;
+    color: black;
+}
+
+.popper{
+    z-index:2;
+}
+
+.notification-paper{
+    border: 3px solid #2e4057;
+}
+
+.notification-list {
+    max-height: 200px;
+    width: 300px;
+    position: relative;
+    overflow: auto;
+    padding-top: 5px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.notification-list-item {
+     padding: 5px 0 !important;
+ }
+
+.notification-list-item span {
+    font-weight: normal;
+}
+
+.colored span {
+    font-weight: bolder ;
+}
+
+.notification-list-item-text {
+    padding-right: 5px !important;
+}
+
+.notification-list-item-text span {
+    font-size: 1em !important;
+}
+
+.notification-list-item-button {
+    position: relative !important;
+    padding: 3px !important;
+}
+
+.notification-list-item-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .badge {
+        margin: 0 -7px;
+    }
+
+    .notification-list {
+        max-width: 250px;
+        max-height: 200px;
+        padding-top: 5px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .notification-list-item-text span {
+        font-size: 0.8em !important;
+    }
+
+}
+

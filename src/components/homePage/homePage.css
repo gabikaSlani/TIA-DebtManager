@@ -1,0 +1,51 @@
+.new-button {
+    margin: 20px 0 0 0 !important;
+    background-color: #f18f01 !important;
+    color: #2f2d2e !important;
+    font-weight: bold !important;
+
+}
+
+.new-item-btn{
+    width: 41.5% !important;
+}
+.new-group-btn{
+    width: 48.5% !important;
+}
+.new-group-btn:hover{
+    background-color: #fea31b !important;
+}
+.new-item-btn:hover{
+    background-color: #fea31b !important;
+}
+
+.new-group-and-friend{
+    width: 35% !important;
+    float: right;
+    margin-top: 30px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-item-group-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+.red-message{
+    color: #f03228;
+    font-weight: bold !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .new-group-and-friend{
+        width: 100% !important;
+        height: 300px !important;
+        margin-bottom: 30px !important;
+    }
+}
