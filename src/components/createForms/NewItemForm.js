@@ -81,10 +81,11 @@ class NewItemForm extends Component {
     })
       .then(res => res.json())
       .then((res) => {
-        const {reload, handleClose} = this.props;
+        const {reload, handleClose, friendReload} = this.props;
         console.log(res);
         handleClose();
-        reload();
+        if (reload) reload();
+        if (friendReload) friendReload();
       })
       .catch(err => {
         console.log(err);
