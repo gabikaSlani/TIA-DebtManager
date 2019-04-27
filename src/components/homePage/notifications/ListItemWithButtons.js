@@ -55,7 +55,7 @@ class ListItemWithButtons extends Component {
   };
 
   fetchUpdateAndAddNotification = (accept, notificationId, typeId, newMessage, updateMessage, receiverId, typeName) => {
-    fetch('/home/update-and-add-notification', {
+    fetch('/api/home/update-and-add-notification', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -94,7 +94,7 @@ class ListItemWithButtons extends Component {
 
   fetchAddFriend = () => {
     const friendId = this.props.messageInfo.requester_id;
-    let url = '/home/add-friend/' + sessionStorage.getItem('logged') + '/' + friendId;
+    let url = '/api/home/add-friend/' + sessionStorage.getItem('logged') + '/' + friendId;
     fetch(url)
       .then(res => res.json())
       .then(() => {
@@ -109,7 +109,7 @@ class ListItemWithButtons extends Component {
 
   fetchSettleUp = () => {
     const friendId = this.props.messageInfo.requester_id;
-    const url = '/friend/settle/' + sessionStorage.getItem('logged') + '/' + friendId;
+    const url = '/api/friend/settle/' + sessionStorage.getItem('logged') + '/' + friendId;
     fetch(url)
       .then(res => res.json())
       .then(() => {

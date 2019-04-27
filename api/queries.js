@@ -45,15 +45,22 @@ const createUser = (request, response) => {
 };
 
 const checkUser = (request, response) => {
+  console.log('som v check user');
   const {login, password} = request.body;
+  console.log(login, password);
   pool.query('SELECT * FROM users WHERE login=$1', [login], (error, results) => {
     if (error) {
-      throw error;
+      response.status(500).send(error);
+      console.log(error);
     }
-    if (results.rowCount === 1 && bcrypt.compareSync(password, results.rows[0].password)) {
-      response.status(201).send({valid: true, id: results.rows[0].id});
-    } else {
-      response.status(201).send({valid: false});
+    else {
+      if (results.rowCount === 1 && bcrypt.compareSync(password, results.rows[0].password)) {
+        console.log('dobre meno a heslo');
+        response.status(201).send({valid: true, id: results.rows[0].id});
+      } else {
+        response.status(201).send({valid: false});
+        console.log('zle meno alebo heslo');
+      }
     }
   });
 };

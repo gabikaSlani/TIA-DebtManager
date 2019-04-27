@@ -42,7 +42,7 @@ class NewItemForm extends Component {
   };
 
   fetchAddItem = () => {
-    fetch('/home/add-item', {
+    fetch('/api/home/add-item', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -68,7 +68,7 @@ class NewItemForm extends Component {
     const {user} = this.props;
     const message = user.info.login + ' added new item "' + this.state.description + '". You owe ' + debt + '€';
     console.log(message);
-    fetch('/home/add-action-notification', {
+    fetch('/api/home/add-action-notification', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

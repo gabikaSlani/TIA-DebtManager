@@ -41,7 +41,7 @@ class ItemListHeader extends Component {
 
   createRequestAndNotification() {
     const {friend, user} = this.props;
-    fetch('/home/new-request-and-notification', {
+    fetch('/api/home/new-request-and-notification', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -59,7 +59,7 @@ class ItemListHeader extends Component {
   };
 
   fetchIfFriendSentRequest = (userId, friendId) => {
-    let url = '/home/find-request/' + friendId + '/' + userId + '/2';
+    let url = '/api/home/find-request/' + friendId + '/' + userId + '/2';
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -71,7 +71,7 @@ class ItemListHeader extends Component {
   };
 
   fetchIfUserAlreadySentRequest = (userId, friendId) => {
-    let url = '/home/find-request/' + userId + '/' + friendId + '/2';
+    let url = '/api/home/find-request/' + userId + '/' + friendId + '/2';
     fetch(url)
       .then(res => res.json())
       .then(res => {

@@ -12,7 +12,7 @@ const AddFriendPopUp = (props) => {
   };
 
   const createRequestAndNotification = () => {
-    fetch('/home/new-request-and-notification', {
+    fetch('/api/home/new-request-and-notification', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

@@ -26,7 +26,7 @@ class Home extends Component {
   };
 
   fetchUserInfo = () => {
-    let url = '/home/' + sessionStorage.getItem('logged');
+    let url = '/api/home/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -40,7 +40,7 @@ class Home extends Component {
   };
 
   fetchUserTotal = () => {
-    let url = '/home/total/' + sessionStorage.getItem('logged');
+    let url = '/api/home/total/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -54,7 +54,7 @@ class Home extends Component {
   };
 
   fetchUserFriends = () => {
-    let url = '/home/friends/' + sessionStorage.getItem('logged');
+    let url = '/api/home/friends/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -68,7 +68,7 @@ class Home extends Component {
   };
 
   fetchNotifications = () => {
-    let url = '/home/notifications/' + sessionStorage.getItem('logged');
+    let url = '/api/home/notifications/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {

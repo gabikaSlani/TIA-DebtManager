@@ -50,7 +50,7 @@ class AddFriendForm extends Component {
   }
 
   fetchNotFriends = () => {
-    let url = '/home/users/' + sessionStorage.getItem('logged');
+    let url = '/api/home/users/' + sessionStorage.getItem('logged');
     return fetch(url)
       .then(res => res.json())
       .catch(err => {
@@ -77,7 +77,7 @@ class AddFriendForm extends Component {
   };
 
   fetchIfFriendSentRequest = (friend) => {
-    let url = '/home/find-request/' + friend.id + '/' + sessionStorage.getItem('logged') + '/1';
+    let url = '/api/home/find-request/' + friend.id + '/' + sessionStorage.getItem('logged') + '/1';
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -93,7 +93,7 @@ class AddFriendForm extends Component {
   };
 
   fetchIfUserAlreadySentRequest = (friend) => {
-    let url = '/home/find-request/' + sessionStorage.getItem('logged')+ '/' + friend.id  + '/1';
+    let url = '/api/home/find-request/' + sessionStorage.getItem('logged')+ '/' + friend.id  + '/1';
     fetch(url)
       .then(res => res.json())
       .then(res => {

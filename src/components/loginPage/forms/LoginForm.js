@@ -26,7 +26,7 @@ class LoginForm extends Component {
   };
 
   validData = (username, password) => {
-    fetch('/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -37,12 +37,16 @@ class LoginForm extends Component {
         password: password
       })
     })
-      .then(res => res.json())
+      .then(res => {
+        res.json();
+        console.log(res);
+      })
       .then(res => {
           if (res.valid) {
             window.sessionStorage.setItem('logged', res.id);
             this.props.history.push('/home/' + res.id);
           } else {
+            console.log(res);
             this.setState({loginErrorMsg: 'Invalid username or password'});
           }
         }
@@ -53,7 +57,8 @@ class LoginForm extends Component {
       });
   };
 
-  submit = () => {
+  submit = (e) => {
+    e.preventDefault();
     const {formData} = this.state;
     this.validData(formData.username, formData.password);
   };
