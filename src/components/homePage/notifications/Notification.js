@@ -37,7 +37,7 @@ class Notification extends Component {
 
   fetchSetSeen = () => {
     const typeId = this.state.messages[0].type_id;
-    let url = 'http://localhost:9000/home/set-seen/' + sessionStorage.getItem('logged') + '/' + typeId;
+    let url = '/home/set-seen/' + sessionStorage.getItem('logged') + '/' + typeId;
     fetch(url)
       .then(res => res.json())
       .then(res => console.log(res))

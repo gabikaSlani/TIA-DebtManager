@@ -26,7 +26,7 @@ class LoginForm extends Component {
   };
 
   validData = (username, password) => {
-    fetch('http://localhost:9000/login', {
+    fetch('/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

@@ -58,7 +58,7 @@ class RegistrationForm extends Component {
   };
 
   tryRegistrate = (username, password) => {
-    fetch('http://localhost:9000/', {
+    fetch('/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

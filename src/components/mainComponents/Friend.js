@@ -36,7 +36,7 @@ class Friend extends Component {
   };
 
   fetchUserInfo = () => {
-    let url = 'http://localhost:9000/home/' + sessionStorage.getItem('logged');
+    let url = '/home/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -50,7 +50,7 @@ class Friend extends Component {
   };
 
   fetchUserTotal = () => {
-    let url = 'http://localhost:9000/home/total/' + sessionStorage.getItem('logged');
+    let url = '/home/total/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -64,7 +64,7 @@ class Friend extends Component {
   };
 
   fetchUserFriends = () => {
-    let url = 'http://localhost:9000/home/friends/' + sessionStorage.getItem('logged');
+    let url = '/home/friends/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -84,7 +84,7 @@ class Friend extends Component {
   };
 
   fetchFriendInfo = () => {
-    let url = 'http://localhost:9000/friend/' + this.friendId;
+    let url = '/friend/' + this.friendId;
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -98,7 +98,7 @@ class Friend extends Component {
   };
 
   fetchItems = () => {
-    let url = 'http://localhost:9000/friend/items/' + this.userId + '/' + this.friendId;
+    let url = '/friend/items/' + this.userId + '/' + this.friendId;
     fetch(url)
       .then(res => res.json())
       .then(res => {
@@ -113,7 +113,7 @@ class Friend extends Component {
   };
 
   fetchNotifications = () => {
-    let url = 'http://localhost:9000/home/notifications/' + sessionStorage.getItem('logged');
+    let url = '/home/notifications/' + sessionStorage.getItem('logged');
     fetch(url)
       .then(res => res.json())
       .then(res => {
