@@ -37,10 +37,7 @@ class LoginForm extends Component {
         password: password
       })
     })
-      .then(res => {
-        console.log(res);
-        res.json();
-      })
+      .then(res => res.json())
       .then(res => {
           if (res.valid) {
             window.sessionStorage.setItem('logged', res.id);
@@ -57,8 +54,7 @@ class LoginForm extends Component {
       });
   };
 
-  submit = (e) => {
-    e.preventDefault();
+  submit = () => {
     const {formData} = this.state;
     this.validData(formData.username, formData.password);
   };
