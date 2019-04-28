@@ -37,14 +37,20 @@
 // });
 //
 // module.exports = app;
+
+require('dotenv').config()
+const morgan = require('morgan')
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
+
 const loginRouter = require('./routes/login');
 const homeRouter = require('./routes/home');
 const friendRouter = require('./routes/friend');
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // API calls
@@ -59,4 +65,73 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
   });
 }
+//
+// /*
+// * Log failed requests to stderr
+// */
+// app.use(
+//   morgan('tiny', {
+//     skip: (req, res) => res.statusCode < 400,
+//     stream: process.stderr
+//   })
+// )
+//
+// /*
+// * Log successful requests to stderr
+// */
+// app.use(
+//   morgan('tiny', {
+//     skip: (req, res) => res.statusCode >= 400,
+//     stream: process.stdout
+//   })
+// )
+//
+// /*
+//  * Ignore HTTP'ed requests if running in Heroku. Use HTTPS only.
+//  */
+// if (process.env.DYNO) {
+//   app.enable('trust proxy')
+//   app.use((req, res, next) => {
+//     if (!req.secure) {
+//       if (req.path === '/') {
+//         res.redirect(301, `https://${req.host}/`)
+//       } else {
+//         res.status(400).end('Please switch to HTTPS.')
+//       }
+//     } else {
+//       return next()
+//     }
+//   })
+// }
+//
+// const postgrator = require('postgrator')
+// const { connectionString } = require('./lib/database')
+//
+// postgrator.setConfig({
+//   migrationDirectory: __dirname + '/postgrator',
+//   driver: 'pg',
+//   connectionString
+// })
+//
+// postgrator.migrate('max', (err, migrations) => {
+//   if (err) {
+//     console.error('Database migration failed!')
+//     console.error(err)
+//     process.exit(1)
+//   }
+//
+//   postgrator.endConnection(() => {
+//     console.log('Database migrated successfully.')
+//
+//     /*
+//      * Database has been migrated, all is good to go!
+//      */
+//     const port = process.env.PORT || 4000
+//     app.listen(port, () => {
+//       console.log(`Server listening at ${port}`)
+//     })
+//   })
+// })
+
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
