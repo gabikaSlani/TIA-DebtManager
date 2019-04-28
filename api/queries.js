@@ -1,14 +1,13 @@
 var bcrypt = require('bcrypt');
 
-
 const Pool = require('pg').Pool;
 const pool = new Pool({
-  user: 'kynnpkiv',
-  host: 'packy.db.elephantsql.com',
-  database: 'kynnpkiv',
-  password: 'fvSlMx1s7ysidgc4rmeBGektYHNlxxGU',
+  user: process.env.USER,
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
   port: 5432,
-  connectionLimit: 2
+  ssl: true
 });
 
 const getUserById = (request, response) => {
