@@ -94,7 +94,7 @@ const addFriend = (request, response) => {
         if (error) {
           throw error;
         } else {
-          console.log(results.rows);
+          console.log("returning from insert friends:" + results.rows);
           response.status(200).send(true);
         }
       });
