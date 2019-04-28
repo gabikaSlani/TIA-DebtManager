@@ -38,8 +38,8 @@ class LoginForm extends Component {
       })
     })
       .then(res => {
-        res.json();
         console.log(res);
+        res.json();
       })
       .then(res => {
           if (res.valid) {
