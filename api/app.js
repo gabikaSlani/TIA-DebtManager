@@ -53,10 +53,7 @@ const friendRouter = require('./routes/friend');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// API calls
-app.use('/api/', loginRouter);
-app.use('/api/home', homeRouter);
-app.use('/api/friend', friendRouter);
+
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, '../build')));
@@ -65,45 +62,50 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
   });
 }
-//
-// /*
-// * Log failed requests to stderr
-// */
-// app.use(
-//   morgan('tiny', {
-//     skip: (req, res) => res.statusCode < 400,
-//     stream: process.stderr
-//   })
-// )
-//
-// /*
-// * Log successful requests to stderr
-// */
-// app.use(
-//   morgan('tiny', {
-//     skip: (req, res) => res.statusCode >= 400,
-//     stream: process.stdout
-//   })
-// )
-//
-// /*
-//  * Ignore HTTP'ed requests if running in Heroku. Use HTTPS only.
-//  */
-// if (process.env.DYNO) {
-//   app.enable('trust proxy')
-//   app.use((req, res, next) => {
-//     if (!req.secure) {
-//       if (req.path === '/') {
-//         res.redirect(301, `https://${req.host}/`)
-//       } else {
-//         res.status(400).end('Please switch to HTTPS.')
-//       }
-//     } else {
-//       return next()
-//     }
-//   })
-// }
-//
+
+// API calls
+app.use('/api/', loginRouter);
+app.use('/api/home', homeRouter);
+app.use('/api/friend', friendRouter);
+
+/*
+* Log failed requests to stderr
+*/
+app.use(
+  morgan('tiny', {
+    skip: (req, res) => res.statusCode < 400,
+    stream: process.stderr
+  })
+)
+
+/*
+* Log successful requests to stderr
+*/
+app.use(
+  morgan('tiny', {
+    skip: (req, res) => res.statusCode >= 400,
+    stream: process.stdout
+  })
+)
+
+/*
+ * Ignore HTTP'ed requests if running in Heroku. Use HTTPS only.
+ */
+if (process.env.DYNO) {
+  app.enable('trust proxy')
+  app.use((req, res, next) => {
+    if (!req.secure) {
+      if (req.path === '/') {
+        res.redirect(301, `https://${req.host}/`)
+      } else {
+        res.status(400).end('Please switch to HTTPS.')
+      }
+    } else {
+      return next()
+    }
+  })
+}
+
 // const postgrator = require('postgrator')
 // const { connectionString } = require('./database')
 //
