@@ -105,7 +105,7 @@ if (process.env.NODE_ENV === 'production') {
 // }
 //
 // const postgrator = require('postgrator')
-// const { connectionString } = require('./lib/database')
+// const { connectionString } = require('./database')
 //
 // postgrator.setConfig({
 //   migrationDirectory: __dirname + '/postgrator',
