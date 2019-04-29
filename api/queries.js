@@ -2,10 +2,16 @@ var bcrypt = require('bcrypt');
 
 const Pool = require('pg').Pool;
 const pool = new Pool({
-  user: process.env.USER,
-  host: process.env.HOST,
-  database: process.env.DATABASE,
-  password: process.env.PASSWORD,
+  // user: process.env.USER,
+  //   // host: process.env.HOST,
+  //   // database: process.env.DATABASE,
+  //   // password: process.env.PASSWORD,
+  //   // port: 5432,
+  //   // ssl: true
+  user: 'veclcaxeuailen',
+  host: 'ec2-54-225-129-101.compute-1.amazonaws.com',
+  database: 'd4hd5aukslmbh',
+  password: 'a8195d0943a470d7cd1f28efcf820eb70bf16f72f267803d89b739e02d944aa5',
   port: 5432,
   ssl: true
 });
