@@ -56,14 +56,14 @@ class Notification extends Component {
   };
 
   generate = () => {
-    const {messages, reload, friendReload, user} = this.props;
+    const {messages, reload, fgReload, user} = this.props;
     let children = [];
     const values = Object.values(messages);
     let counter = this.state.count;
     for (const value of values){
       value.requester_id
       ? children.push(<ListItemWithButtons key={value.id} messageInfo={value} {...this.props}
-                                           user={user} reload={reload} friendReload={friendReload} colored={counter > 0}/>)
+                                           user={user} reload={reload} fgReload={fgReload} colored={counter > 0}/>)
         : children.push(<ListItemWithText key={value.id} text={value.message} colored={counter > 0}/>);
       counter--;
     }

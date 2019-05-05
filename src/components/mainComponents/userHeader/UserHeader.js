@@ -18,7 +18,6 @@ const UserHeader = (props) => {
     return children;
   };
 
-  console.log(user);
   return (
     <AppBar position="static" className="appBar-user paddinger">
       <Toolbar className="toolbar">

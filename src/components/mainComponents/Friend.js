@@ -19,7 +19,6 @@ class Friend extends Component {
       items: [],
       debt: null,
       loading: true,
-      logged: false,
       isFriend: true
     };
   }
@@ -30,7 +29,7 @@ class Friend extends Component {
     }
   }
 
-  friendReload = () => {
+  fgReload = () => {
     this.setState({loading: true});
     this.fetchUserInfo();
   };
@@ -158,7 +157,7 @@ class Friend extends Component {
                   :
                   <div className="main-component">
                     <FriendPage user={user} friend={friend} debt={debt} items={items}
-                                friendReload={this.friendReload} {...this.props}/>
+                                fgReload={this.fgReload} {...this.props}/>
                   </div>
               )
           )

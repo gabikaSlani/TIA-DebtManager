@@ -9,12 +9,16 @@ import NotLogged from "../mainComponents/NotLogged";
 
 import './homePage.css';
 import "../paddinger.css";
+import AddGroupPopUp from "./addGroupPopUp/AddGroupPopUp";
 
 class HomePage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {open: false}
+    this.state = {
+      open: false,
+      openGroup: false
+    }
   }
 
   logout = () => {
@@ -27,10 +31,16 @@ class HomePage extends Component {
     this.setState({open: true});
   };
 
-  newGroup = () => {};
+  newGroup = () => {
+    this.setState({openGroup:true})
+  };
 
   handleClose = () => {
     this.setState({open: false});
+  };
+
+  handleCloseGroup = () => {
+    this.setState({openGroup: false});
   };
 
   loggedUserIdInUrl = () => {
@@ -39,7 +49,7 @@ class HomePage extends Component {
 
   render() {
     const {user} = this.props;
-    const {open} = this.state;
+    const {open, openGroup} = this.state;
     return (
       <Fragment>
         {user && this.loggedUserIdInUrl()
@@ -71,6 +81,7 @@ class HomePage extends Component {
               </div>
             </div>
             <AddItemPupUp open={open} handleClose={this.handleClose} chips={true} friends={user.friends} {...this.props}/>
+            <AddGroupPopUp open={openGroup} handleClose={this.handleCloseGroup} friends={user.friends} {...this.props}/>
           </div>
           :
           <NotLogged />

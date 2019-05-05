@@ -1,33 +1,27 @@
-import React, {Component} from "react";
-import {List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import {Group} from "@material-ui/icons";
+import React from "react";
+import {Link, List} from "@material-ui/core";
 
 import "./friendsGroups.css";
+import {Link as RouterLink} from "react-router-dom";
+import FriendListItem from "./FriendListItem";
 
-class GroupList extends Component {
-  constructor(props) {
-    super(props);
+const GroupList = (props) => {
+  const {user} = props;
+  return (
+    <List dense={false} className="list-friends-groups">
+      {user.groups.map((group, index) =>
+        <Link
+          key={index}
+          component={RouterLink}
+          to={{pathname: ("/group/" + user.info.id + "/" + group.id)}}
+          className="list-item-link-friends-groups"
+        >
+          <FriendListItem index={index} group={group}/>
+        </Link>
+      )}
+    </List>
+  );
 
-    this.state = {
-      list: []
-    };
-  }
-
-  render() {
-    const {list} = this.state;
-    return (
-      <List dense={false} className="list-friends-groups">
-        {list.map((item, index) =>
-          <ListItem key={index}>
-            <ListItemIcon>
-              <Group fontSize="large"/>
-            </ListItemIcon>
-            <ListItemText primary={item.name} secondary={item.debt} />
-          </ListItem>
-        )}
-      </List>
-    );
-  }
 }
 
 export default GroupList;

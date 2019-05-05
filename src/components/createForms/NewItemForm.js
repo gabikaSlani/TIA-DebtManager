@@ -28,11 +28,16 @@ class NewItemForm extends Component {
   };
 
   submit = () => {
-    const {chips, friend} = this.props;
-    if(!chips) {
-      this.setState({chosenFriends: [{value: friend.id, label: friend.login}]})
+    const {chips, friend, group} = this.props;
+    if (!chips) {
+      if (group) {
+        this.setChosenFriends(this.groupMembersWithoutMe());
+      }
+      else {
+        this.setChosenFriends([{value: friend.id, label: friend.login}]);
+      }
       this.fetchAddItem();
-    }else {
+    } else {
       if (this.state.chosenFriends.length < 1) {
         this.setErrorMsg();
       } else {
@@ -60,13 +65,15 @@ class NewItemForm extends Component {
       })
       .catch(err => {
         console.log(err);
-        this.props.history.push('/error/'+err.message)
+        this.props.history.push('/error/' + err.message)
       });
   };
 
   fetchAddNotification = (debt) => {
-    const {user} = this.props;
-    const message = user.info.login + ' added new item "' + this.state.description + '". You owe ' + debt + '€';
+    const {user, group} = this.props;
+    const message = group
+      ? user.info.login + ' added new item "' + this.state.description + '" in group "'+ group.name +'". You owe ' + debt + '€'
+      : user.info.login + ' added new item "' + this.state.description + '". You owe ' + debt + '€';
     console.log(message);
     fetch('/api/home/add-action-notification', {
       method: 'POST',
@@ -81,15 +88,15 @@ class NewItemForm extends Component {
     })
       .then(res => res.json())
       .then((res) => {
-        const {reload, handleClose, friendReload} = this.props;
+        const {reload, handleClose, fgReload} = this.props;
         console.log(res);
         handleClose();
         if (reload) reload();
-        if (friendReload) friendReload();
+        if (fgReload) fgReload();
       })
       .catch(err => {
         console.log(err);
-        this.props.history.push('/error/'+err.message)
+        this.props.history.push('/error/' + err.message)
       });
   };
 
@@ -99,6 +106,11 @@ class NewItemForm extends Component {
 
   setChosenFriends = (chosenFriends) => {
     this.setState({chosenFriends: chosenFriends})
+  };
+
+  groupMembersWithoutMe = () => {
+    const {user, group} = this.props;
+    return group.members.filter(member => member.id != user.info.id)
   };
 
   componentDidMount() {

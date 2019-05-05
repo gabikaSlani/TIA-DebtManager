@@ -74,7 +74,21 @@ class Home extends Component {
       .then(res => {
 
         this.setState({user: {...this.state.user, notifications: res}});
-        console.log(this.state.user.notifications);
+        this.fetchUserGroups();
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error/'+err.message)
+      });
+  };
+
+  fetchUserGroups = () => {
+    let url = '/api/home/groups/' + sessionStorage.getItem('logged');
+    fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({user: {...this.state.user, groups: res}});
+        console.log(this.state.user.groups);
         this.setState({loading :false})
       })
       .catch(err => {

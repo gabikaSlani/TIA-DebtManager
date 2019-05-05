@@ -83,7 +83,7 @@ class ListItemWithButtons extends Component {
           }
         } else {
           if (this.props.reload) this.props.reload();
-          if (this.props.friendReload) this.props.friendReload();
+          if (this.props.fgReload) this.props.fgReload();
         }
       })
       .catch(err => {
@@ -99,7 +99,7 @@ class ListItemWithButtons extends Component {
       .then(res => res.json())
       .then(() => {
         if(this.props.reload) this.props.reload();
-        if (this.props.friendReload) this.props.friendReload();
+        if (this.props.fgReload) this.props.fgReload();
       })
       .catch(err => {
         console.log(err);
@@ -114,7 +114,7 @@ class ListItemWithButtons extends Component {
       .then(res => res.json())
       .then(() => {
         if (this.props.reload) this.props.reload();
-        if (this.props.friendReload) this.props.friendReload();
+        if (this.props.fgReload) this.props.fgReload();
       })
       .catch(err => {
         console.log(err);

@@ -6,7 +6,7 @@ const path = require('path');
 const loginRouter = require('./routes/login');
 const homeRouter = require('./routes/home');
 const friendRouter = require('./routes/friend');
-
+const groupRouter = require('./routes/group');
 
 const app = express();
 app.use(bodyParser.json());
@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/', loginRouter);
 app.use('/api/home', homeRouter);
 app.use('/api/friend', friendRouter);
+app.use('/api/group', groupRouter);
 
 /*
 * Log failed requests to stderr

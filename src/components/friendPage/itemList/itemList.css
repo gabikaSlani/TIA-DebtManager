@@ -64,11 +64,25 @@
 }
 
 .button-green {
-    margin: 0 20px 0 0 !important;
     background-color: #99c24d !important;
     color: #2f2d2e !important;
     font-weight: bold !important;
     line-height: normal;
+}
+
+.with-margin-right{
+    margin: 0 20px 0 0 !important;
+}
+
+.members {
+    color: #009fb7 !important;
+    font-weight: bold !important;
+    letter-spacing: 0.05em;
+    text-decoration: underline;
+}
+
+.members-text{
+    font-size:0.875rem !important;
 }
 
 .button-green:hover{

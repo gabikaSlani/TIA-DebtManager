@@ -22,6 +22,6 @@ const FriendList = (props) => {
       )}
     </List>
   );
-}
+};
 
 export default FriendList;

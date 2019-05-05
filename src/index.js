@@ -8,6 +8,7 @@ import NotFound from './components/mainComponents/NotFound';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import ErrorPage from "./components/mainComponents/ErrorPage";
+import Group from "./components/mainComponents/Group";
 
 
 const routing = (
@@ -16,6 +17,7 @@ const routing = (
       <Route exact path="/" component={Login}/>
       <Route path="/home/:id" component={Home}/>
       <Route path="/friend/:userId/:friendId" component={Friend}/>
+      <Route path="/group/:userId/:groupId" component={Group}/>
       <Route path="/error/:message" component={ErrorPage}/>
       <Route component={NotFound}/>
       </Switch>
